@@ -151,11 +151,6 @@ def executar_preto():
     wait(10)
     print("DEU CERTO")
 
-def detectar_preto(sensor):
-    h, s, v = sensor.hsv()
-    print(f"[PRETO] HSV: h={h}, s={s}, v={v}")
-    return (170 <= h <= 220) and (30 > s >= 11) and (38 > v > 20)
-
 
 def detectar_verde(sensor):
     h, s, v = sensor.hsv()
@@ -407,8 +402,33 @@ def seguir_linha():
             # Lê a inclinação do robô (pitch e roll)
         pitch, _ = hub.imu.tilt()
 
-        # Imprime a arfagem (pitch) no console
-        # print("Arfagem (pitch):", pitch)
+        # if viuobs:
+        #     print("OBSTÁCULO DETECTADO! Recuando e desviando...")
+        # # Recuar um pouco
+        #     me.run(200)
+        #     md.run(200)
+        #     mt.run(200)
+        #     wait(800)
+        #     parar_motor()
+        #     wait(100)
+
+        #     # Virar para a direita levemente
+        #     me.run(-150)
+        #     md.run(150)
+        #     mt.run(0)
+        #     wait(700)
+        #     parar_motor()
+        #     wait(100)
+
+        #     # Avançar um pouco para contornar
+        #     me.run(-200)
+        #     md.run(200)
+        #     mt.run(200)
+        #     wait(1000)
+        #     parar_motor()
+
+        # # Imprime a arfagem (pitch) no console
+        # # print("Arfagem (pitch):", pitch)
 
         # Decide a velocidade com base na inclinação
         if pitch < -15:
@@ -450,7 +470,7 @@ def seguir_linha():
             parar_motor()
             wait(2000)
         # print("OS DOIS SENSORES VIRAM PRETO — VERIFICANDO HSV...")
-            if detectar_preto(sensor_esquerdo) and detectar_preto(sensor_direito):
+            if LIMIAR_PRETO(sensor_esquerdo) and LIMIAR_PRETO(sensor_direito):
                 print("É O BLACK")
                 executar_preto()
 
@@ -458,11 +478,11 @@ def seguir_linha():
                 print("É O GREEN TOTAL")
                 executar_verde()
 
-            elif detectar_verde(sensor_esquerdo) and not detectar_preto(sensor_direito):
+            elif detectar_verde(sensor_esquerdo) and not LIMIAR_PRETO(sensor_direito):
                 print("É O GREEN NO ESQUERDO")
                 executar_verde()
 
-            elif detectar_verde(sensor_direito) and not detectar_preto(sensor_esquerdo):
+            elif detectar_verde(sensor_direito) and not LIMIAR_PRETO(sensor_esquerdo):
                 print("É O GREEN NO DIREITO")
                 executar_verde()
 

@@ -3,6 +3,7 @@ from pybricks.pupdevices import Motor
 from pybricks.pupdevices import UltrasonicSensor
 from pybricks.parameters import Port
 from pybricks.tools import wait
+
   
 
 hub = PrimeHub(broadcast_channel=125)
@@ -10,13 +11,13 @@ hub = PrimeHub(broadcast_channel=125)
 sensor_frente = UltrasonicSensor(Port.E)
 mg = Motor(Port.F)
 
-while True:
-    
+def viuobs():
     dist_frente = sensor_frente.distance() / 10  # Atualiza a cada ciclo
     
-    if dist_frente < 30:
-        hub.ble.broadcast("CUIDADO")  # envia mensagem
+    if dist_frente <= 10:
+        hub.ble.broadcast("CUIDADO - OBSTÁCULO")  # envia mensagem
         print(f"Distância: {dist_frente:.1f} cm")
+
         
     
     
@@ -25,6 +26,10 @@ while True:
         print(f"Distâ ncia segura: {dist_frente:.1f} cm")
 
     wait(500)
+
+
+    
+    
 
 
 
