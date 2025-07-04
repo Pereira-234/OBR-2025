@@ -38,9 +38,9 @@ def novd():
     wait(1600)
 
 
-
 def executar_verde():
     parar_motor()
+
     hub.speaker.beep(1000, 700)
     wait(500)
     variavel_verde = 0
@@ -139,17 +139,17 @@ def executar_verde():
     
     wait(500)
 
-def executar_preto():
-    print("É PRETO — Executando lógica normal de interseção preta")
-    parar_motor()
-    wait(00)
-    testtsensor()
-    wait(500)
-    parar_motor()
-    wait(50)
-    mov()
-    wait(10)
-    print("DEU CERTO")
+# def executar_preto():
+#     print("É PRETO — Executando lógica normal de interseção preta")
+#     parar_motor()
+#     wait(00)
+#     testtsensor()
+#     wait(500)
+#     parar_motor()
+#     wait(50)
+#     mov()
+#     wait(10)
+#     print("DEU CERTO")
 
 
 def detectar_verde(sensor):
@@ -165,19 +165,19 @@ def detectar_vermelho(sensor):
     return (h >= 340) and (85 > s > 75) and (60 > v > 45)
 
 
-def recuadinha():
-    velocidade = 100
-    tempo = 700
+# def recuadinha():
+#     velocidade = 100
+#     tempo = 700
 
-    stopwatch = StopWatch()
+#     stopwatch = StopWatch()
     
-    md.run(-velocidade)
-    mt.run(-velocidade)
+#     md.run(-velocidade)
+#     mt.run(-velocidade)
    
-    while stopwatch.time() < tempo:
-        pass
-    md.stop()
-    mt.stop()
+#     while stopwatch.time() < tempo:
+#         pass
+#     md.stop()
+#     mt.stop()
 
 
 def mov():
@@ -239,11 +239,11 @@ def mov():
     md.stop()
 
 
-def parar_motor():
-    """Função para parar todos os motores."""
-    me.stop()
-    md.stop()
-    mt.stop()
+# def parar_motor():
+#     """Função para parar todos os motores."""
+#     me.stop()
+#     md.stop()
+#     mt.stop()
 
 
 
@@ -260,72 +260,72 @@ def testtsensor():
      print("INTERSECÇÃO")
 
 
-def girar(velocidade, tempo):
+# def girar(velocidade, tempo):
 
-    stopwatch = StopWatch()
+#     stopwatch = StopWatch()
     
-    # Inicia os motores ao mesmo tempo
-    md.run(velocidade)  # Motor Direito
-    me.run(velocidade)  # Motor Esquerdo
+#     # Inicia os motores ao mesmo tempo
+#     md.run(velocidade)  # Motor Direito
+#     me.run(velocidade)  # Motor Esquerdo
    
-    # Motor traseiro auxilia na rotação
-    mt.run(velocidade)  
+#     # Motor traseiro auxilia na rotação
+#     mt.run(velocidade)  
     
-    # Aguarda até que o tempo especificado tenha passado
-    while stopwatch.time() < tempo:
-        pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
+#     # Aguarda até que o tempo especificado tenha passado
+#     while stopwatch.time() < tempo:
+#         pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
 
-    # Após o tempo, para o movimento
-    parar_motor()
+#     # Após o tempo, para o movimento
+#     parar_motor()
 
-    wait(100)  # Pequeno atraso para estabilizar
+#     wait(100)  # Pequeno atraso para estabilizar
 
 
-def definir_velocidade(motor, velocidade):
-    """Define a velocidade de um motor específico."""
-    motor.run(velocidade)
+# def definir_velocidade(motor, velocidade):
+#     """Define a velocidade de um motor específico."""
+#     motor.run(velocidade)
     
 
-def mover_para_frente():
-    velocidade = 250  # Velocidade dos motores
-    tempo = 12500  # Tempo de movimento em milissegundos (simulando millis())
+# def mover_para_frente():
+#     velocidade = 250  # Velocidade dos motores
+#     tempo = 12500  # Tempo de movimento em milissegundos (simulando millis())
 
-    # Iniciando o cronômetro
-    stopwatch = StopWatch()
+#     # Iniciando o cronômetro
+#     stopwatch = StopWatch()
     
-    # Inicia os motores ao mesmo tempo
-    md.run(velocidade)  # Motor Direito
-    me.run(-velocidade)  # Motor Esquerdo
-   
-    
-    # Aguarda até que o tempo especificado tenha passado
-    while stopwatch.time() < tempo:
-        pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
-
-    # Após o tempo, para o movimento
-    md.stop()
-    me.stop()
-
-
-def mpf_preto():
-    velocidade = 100  # Velocidade dos motores
-    tempo = 1780  # Tempo de movimento em milissegundos (simulando millis())
-
-    # Iniciando o cronômetro
-    stopwatch = StopWatch()
-    
-    # Inicia os motores ao mesmo tempo
-    md.run(velocidade)  # Motor Direito
-    me.run(-velocidade)  # Motor Esquerdo
+#     # Inicia os motores ao mesmo tempo
+#     md.run(velocidade)  # Motor Direito
+#     me.run(-velocidade)  # Motor Esquerdo
    
     
-    # Aguarda até que o tempo especificado tenha passado
-    while stopwatch.time() < tempo:
-        pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
+#     # Aguarda até que o tempo especificado tenha passado
+#     while stopwatch.time() < tempo:
+#         pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
 
-    # Após o tempo, para o movimento
-    md.stop()
-    me.stop()
+#     # Após o tempo, para o movimento
+#     md.stop()
+#     me.stop()
+
+
+# def mpf_preto():
+#     velocidade = 100  # Velocidade dos motores
+#     tempo = 1780  # Tempo de movimento em milissegundos (simulando millis())
+
+#     # Iniciando o cronômetro
+#     stopwatch = StopWatch()
+    
+#     # Inicia os motores ao mesmo tempo
+#     md.run(velocidade)  # Motor Direito
+#     me.run(-velocidade)  # Motor Esquerdo
+   
+    
+#     # Aguarda até que o tempo especificado tenha passado
+#     while stopwatch.time() < tempo:
+#         pass  # Aguarda até o tempo passar (sem bloquear outras execuções)
+
+#     # Após o tempo, para o movimento
+#     md.stop()
+#     me.stop()
 
 def std():
     md.stop
@@ -467,7 +467,7 @@ def seguir_linha():
 
         if se < LIMIAR_PRETO and sd < LIMIAR_PRETO:
             #hub.speaker.beep(900, 100)
-            parar_motor()
+            # parar_motor()
             wait(2000)
         # print("OS DOIS SENSORES VIRAM PRETO — VERIFICANDO HSV...")
             if LIMIAR_PRETO(sensor_esquerdo) and LIMIAR_PRETO(sensor_direito):
@@ -478,11 +478,11 @@ def seguir_linha():
                 print("É O GREEN TOTAL")
                 executar_verde()
 
-            elif detectar_verde(sensor_esquerdo) and not LIMIAR_PRETO(sensor_direito):
+            elif detectar_verde(sensor_esquerdo) and not detectar_verde(sensor_direito):
                 print("É O GREEN NO ESQUERDO")
                 executar_verde()
 
-            elif detectar_verde(sensor_direito) and not LIMIAR_PRETO(sensor_esquerdo):
+            elif detectar_verde(sensor_direito) and not detectar_verde(sensor_esquerdo):
                 print("É O GREEN NO DIREITO")
                 executar_verde()
 
